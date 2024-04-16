@@ -2,9 +2,7 @@ import "./App.css";
 
 function App() {
   return (
-    <>
-      <p>랜덤게임</p>
-    </>
+    <p>깃허브 연동 테스트</p>
   );
 }
 
