@@ -15,8 +15,8 @@ module.exports = {
 		"tsconfig.node.json",
 	],
 	parser: "@typescript-eslint/parser",
-	plugins: ["@typescript-eslint/eslint-plugin"],
-	rules: {
-		"prettier/prettier": "error",
+	parserOptions: {
+		project: "./tsconfig.json",
 	},
+	plugins: ["prettier"],
 };
