@@ -23,5 +23,7 @@ module.exports = {
 	rules: {
 		'no-unused-vars': 'off',
 		'prettier/prettier': 'error',
+		'import/no-extraneous-dependencies': 0,
+		'react/react-in-jsx-scope': 'off',
 	},
 };
