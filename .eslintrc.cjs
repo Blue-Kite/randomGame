@@ -25,5 +25,13 @@ module.exports = {
 		'prettier/prettier': 'error',
 		'import/no-extraneous-dependencies': 0,
 		'react/react-in-jsx-scope': 'off',
+		'react/function-component-definition': [
+			'error',
+			{
+				namedComponents: 'arrow-function',
+				unnamedComponents: 'arrow-function',
+			},
+		],
+		'import/prefer-default-export': 'off',
 	},
 };
