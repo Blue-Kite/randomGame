@@ -2,6 +2,7 @@ module.exports = {
 	root: true,
 	env: { browser: true, es2020: true },
 	extends: [
+		'plugin:@typescript-eslint/recommended',
 		'eslint:recommended',
 		'airbnb',
 		'airbnb/hooks',
@@ -15,9 +16,10 @@ module.exports = {
 		'tsconfig.json',
 		'tsconfig.node.json',
 	],
-	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		project: './tsconfig.json',
+		tsconfigRootDir: __dirname,
+		sourceType: 'module',
 	},
 	plugins: ['prettier'],
 	rules: {

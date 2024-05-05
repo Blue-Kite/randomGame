@@ -1,12 +1,7 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import MainRouter from './routes/MainRouter';
 
-function App() {
-	return (
-		<Routes>
-			<Route index element={<div>메인입니다</div>} />
-		</Routes>
-	);
-}
+const App = () => <RouterProvider router={MainRouter} />;
 
 export default App;
