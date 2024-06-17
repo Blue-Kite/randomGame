@@ -6,9 +6,9 @@ import Gnb from './Gnb';
 const Layout = () => (
 	<Flex width="100vw" height="100vh" flexDirection="column">
 		<Gnb />
-		<Flex flexDirection="row">
+		<Flex flexDirection={{ base: 'column', md: 'row' }} height="100%">
 			<Lnb />
-			<Box width="calc(100vw - 180px)">
+			<Box width={{ base: '100%', md: 'calc(100vw - 180px)' }}>
 				<Outlet />
 			</Box>
 		</Flex>

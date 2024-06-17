@@ -2,26 +2,18 @@ import { Box, Flex, Link } from '@chakra-ui/react';
 
 const Lnb = () => (
 	<Flex
-		flexDirection="column"
-		width="180px"
-		height="calc(100vh - 80px)"
+		flexDirection={{ base: 'row', md: 'column' }}
+		width={{ base: '100%', md: '180px' }}
+		height={{ base: '50px', md: '100%' }}
 		background="lightgray"
 		alignItems="center"
+		justifyContent={{ base: 'center', md: 'normal' }}
+		gap={{ base: '20px', md: '0px' }}
 	>
-		<Box
-			height="100px"
-			display="flex"
-			flexDirection="column"
-			justifyContent="center"
-		>
+		<Box display="flex" flexDirection="column" justifyContent="center">
 			<Link href="/">첫 번째 게임</Link>
 		</Box>
-		<Box
-			height="100px"
-			display="flex"
-			flexDirection="column"
-			justifyContent="center"
-		>
+		<Box display="flex" flexDirection="column" justifyContent="center">
 			<Link href="/second">두 번째 게임</Link>
 		</Box>
 	</Flex>
