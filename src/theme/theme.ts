@@ -8,6 +8,12 @@ const breakpoints = {
 	'2xl': '1536px',
 };
 
-const theme = extendTheme({ breakpoints });
+const theme = extendTheme({
+	breakpoints,
+	fonts: {
+		heading: `'EF_jejudoldam', sans-serif`,
+		lnb: `'MangoDdobak-B', sans-serif`,
+	},
+});
 
 export default theme;

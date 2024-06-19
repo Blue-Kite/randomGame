@@ -1,4 +1,4 @@
-import { Box, Flex, Link } from '@chakra-ui/react';
+import { Box, Flex, Link, Text } from '@chakra-ui/react';
 
 const Lnb = () => (
 	<Flex
@@ -10,11 +10,29 @@ const Lnb = () => (
 		justifyContent={{ base: 'center', md: 'normal' }}
 		gap={{ base: '20px', md: '0px' }}
 	>
-		<Box display="flex" flexDirection="column" justifyContent="center">
-			<Link href="/">첫 번째 게임</Link>
+		<Box
+			display="flex"
+			flexDirection="column"
+			height={{ base: '50px', md: '100px' }}
+			justifyContent="center"
+		>
+			<Link href="/">
+				<Text fontFamily="lnb" color="black">
+					첫 번째 게임
+				</Text>
+			</Link>
 		</Box>
-		<Box display="flex" flexDirection="column" justifyContent="center">
-			<Link href="/second">두 번째 게임</Link>
+		<Box
+			display="flex"
+			height={{ base: '50px', md: '100px' }}
+			flexDirection="column"
+			justifyContent="center"
+		>
+			<Link href="/second">
+				<Text fontFamily="lnb" color="black">
+					두 번째 게임
+				</Text>
+			</Link>
 		</Box>
 	</Flex>
 );

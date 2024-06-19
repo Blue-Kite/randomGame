@@ -10,7 +10,9 @@ const Gnb = () => (
 		padding="0px 30px"
 		background="green"
 	>
-		<Text color="yellow">오리 게임</Text>
+		<Text fontFamily="heading" color="yellow">
+			오리 게임
+		</Text>
 		<FormControl display="flex" width="fit-content" alignItems="center">
 			<FormLabel htmlFor="darkmode-change" mb="0">
 				다크모드 설정
