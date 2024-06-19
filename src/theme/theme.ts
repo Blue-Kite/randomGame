@@ -12,7 +12,7 @@ const theme = extendTheme({
 	breakpoints,
 	fonts: {
 		heading: `'EF_jejudoldam', sans-serif`,
-		lnb: `'MangoDdobak-B', sans-serif`,
+		subHeading: `'MangoDdobak-B', sans-serif`,
 	},
 });
 

@@ -10,7 +10,7 @@ const Fonts = () => (
           font-weight: normal;
           font-style: normal;
         }
-        /* 쿠키런체 */
+        /* 망고보드체 */
         @font-face {
           font-family: 'MangoDdobak-B';
           src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoDdobak-B.woff2') format('woff2');

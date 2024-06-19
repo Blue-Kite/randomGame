@@ -17,7 +17,7 @@ const Lnb = () => (
 			justifyContent="center"
 		>
 			<Link href="/">
-				<Text fontFamily="lnb" color="black">
+				<Text fontFamily="subHeading" color="black">
 					첫 번째 게임
 				</Text>
 			</Link>
@@ -29,7 +29,7 @@ const Lnb = () => (
 			justifyContent="center"
 		>
 			<Link href="/second">
-				<Text fontFamily="lnb" color="black">
+				<Text fontFamily="subHeading" color="black">
 					두 번째 게임
 				</Text>
 			</Link>
