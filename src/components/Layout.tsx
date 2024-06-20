@@ -4,11 +4,14 @@ import Lnb from './Lnb';
 import Gnb from './Gnb';
 
 const Layout = () => (
-	<Flex width="100vw" height="100vh" flexDirection="column">
+	<Flex width="100vw" flexDirection="column">
 		<Gnb />
-		<Flex flexDirection={{ base: 'column', md: 'row' }} height="100%">
+		<Flex flexDirection={{ base: 'column', md: 'row' }}>
 			<Lnb />
-			<Box width={{ base: '100%', md: 'calc(100vw - 180px)' }}>
+			<Box
+				width={{ base: '100%', md: 'calc(100vw - 120px)' }}
+				paddingBottom="30px"
+			>
 				<Outlet />
 			</Box>
 		</Flex>

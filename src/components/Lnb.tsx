@@ -3,8 +3,8 @@ import { Box, Flex, Link, Text } from '@chakra-ui/react';
 const Lnb = () => (
 	<Flex
 		flexDirection={{ base: 'row', md: 'column' }}
-		width={{ base: '100%', md: '180px' }}
-		height={{ base: '50px', md: '100%' }}
+		width={{ base: '100%', md: '120px' }}
+		height={{ base: '50px', md: '500px' }}
 		background="lightgray"
 		alignItems="center"
 		justifyContent={{ base: 'center', md: 'normal' }}

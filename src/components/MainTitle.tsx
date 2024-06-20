@@ -1,14 +1,18 @@
-import { Flex, Text, Input } from '@chakra-ui/react';
+import { Flex, Text, Input, Button } from '@chakra-ui/react';
+import React from 'react';
 
 type MainTitleProps = {
-	count: string;
 	setCount: (count: string) => void;
 	title: string;
 };
 
-const MainTitle = ({ count, setCount, title }: MainTitleProps) => {
+const MainTitle = ({ setCount, title }: MainTitleProps) => {
+	const [localCount, setLocalCount] = React.useState('');
+
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-		setCount(event.target.value);
+		setLocalCount(event.target.value);
+
+	const handleClick = () => setCount(localCount);
 
 	return (
 		<Flex
@@ -18,13 +22,16 @@ const MainTitle = ({ count, setCount, title }: MainTitleProps) => {
 			gap="10px"
 		>
 			<Text fontFamily="subHeading">{title}</Text>
-			<Input
-				width="75%"
-				height="30px"
-				value={count}
-				onChange={handleChange}
-				placeholder="참여할 인원 수를 입력해주세요"
-			/>
+			<Flex flexDirection="row" gap="10px">
+				<Input
+					width="75%"
+					height="30px"
+					value={localCount}
+					onChange={handleChange}
+					placeholder="참여할 인원 수를 입력해주세요"
+				/>
+				<Button onClick={handleClick}>저장</Button>
+			</Flex>
 		</Flex>
 	);
 };
