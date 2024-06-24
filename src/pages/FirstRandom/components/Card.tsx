@@ -24,6 +24,8 @@ const Card = ({ isLoser }: CardProps) => {
 			height="200px"
 			background={background}
 			borderRadius="10px"
+			transition="0.3s"
+			transform={`perspective(800px) ${background === 'green' ? 'rotateY(0deg)' : 'rotateY(180deg)'}`}
 		/>
 	);
 };
