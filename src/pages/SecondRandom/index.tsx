@@ -1,14 +1,20 @@
 import { Flex } from '@chakra-ui/react';
+import MainTitle from '@components/MainTitle';
 import React from 'react';
-import MainTitle from '../../components/MainTitle';
+import Timer from './components/Timer';
 
 const SecondRandom = () => {
 	const [count, setCount] = React.useState('');
+	const [end] = React.useState(0);
 
 	return (
-		<Flex padding="10px" gap="">
+		<Flex direction="column" padding="10px" gap="30px">
 			<MainTitle title="두 번째 게임" setCount={setCount} />
-			{count}
+			{count !== '' && Number(count) !== end && (
+				<Flex flexDirection="column" width="100%">
+					<Timer />
+				</Flex>
+			)}
 		</Flex>
 	);
 };

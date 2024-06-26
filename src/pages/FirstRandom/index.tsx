@@ -1,6 +1,7 @@
 import { Flex, Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
-import MainTitle from '../../components/MainTitle';
+
+import MainTitle from '@components/MainTitle';
 import Card from './components/Card';
 
 const FirstRandom = () => {
