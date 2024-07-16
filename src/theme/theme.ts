@@ -8,7 +8,13 @@ const breakpoints = {
 	'2xl': '1536px',
 };
 
+const config = {
+	initialColorMode: 'light',
+	useSystemColorMode: false,
+};
+
 const theme = extendTheme({
+	config,
 	breakpoints,
 	fonts: {
 		heading: `'EF_jejudoldam', sans-serif`,

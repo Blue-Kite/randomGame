@@ -1,36 +1,52 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { formatTime } from '@utils/formatTime';
 import React from 'react';
 
 const Timer = () => {
 	const [isRunning, setIsRunning] = React.useState(false);
 	const [second, setSecond] = React.useState(0);
+	const timer = React.useRef(0);
 
-	const handleStart = () => {
-		setIsRunning(true);
-	};
-
-	const handleStop = () => {
-		setIsRunning(false);
-	};
-
-	React.useEffect(() => {
-		let interval: number | undefined;
+	const handleStartStop = () => {
 		if (isRunning) {
-			interval = window.setInterval(() => {
+			timer.current = window.setInterval(() => {
 				setSecond((prev) => prev + 1);
-			}, 10);
-		} else if (interval) clearInterval(interval);
+			}, 1000);
+		}
+		setIsRunning((prev) => !prev);
+	};
+
+	const handleReset = () => {};
+
+	/* React.useEffect(() => {
+		if (isRunning) {
+			timer.current = window.setInterval(() => {
+				setSecond((prev) => prev + 1);
+			}, 1000);
+		} else {
+			clearInterval(timer.current);
+		}
 		return () => {
-			if (interval) clearInterval(interval);
+			clearInterval(timer.current);
 		};
-	}, [isRunning]);
+	}, [isRunning]); */
 
 	return (
-		<Flex flexDirection="column">
-			<Text fontFamily="subHeading">{second}</Text>
+		<Flex flexDirection="column" alignItems="center" gap="50px">
+			<Box
+				display="flex"
+				flexDirection="column"
+				justifyContent="center"
+				alignItems="center"
+				width="200px"
+				height="100px"
+				border="1px solid green"
+			>
+				<Text fontFamily="subHeading">{formatTime(second)}</Text>
+			</Box>
 			<Flex flexDirection="row" justifyContent="center" gap="30px">
-				<Button onClick={handleStart}>{isRunning ? '중지' : '실행'}</Button>
-				<Button onClick={handleStop}>{isRunning ? '저장' : '리셋'}</Button>
+				<Button onClick={handleStartStop}>{isRunning ? '중지' : '실행'}</Button>
+				<Button onClick={handleReset}>{isRunning ? '저장' : '리셋'}</Button>
 			</Flex>
 		</Flex>
 	);
