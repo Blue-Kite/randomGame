@@ -2,34 +2,42 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import { formatTime } from '@utils/formatTime';
 import React from 'react';
 
-const Timer = () => {
+type TimerProps = {
+	buttonDisabled: boolean;
+	setTimes: React.Dispatch<React.SetStateAction<number[]>>;
+};
+
+const Timer = ({ setTimes, buttonDisabled }: TimerProps) => {
 	const [isRunning, setIsRunning] = React.useState(false);
 	const [second, setSecond] = React.useState(0);
-	const timer = React.useRef(0);
+	const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
 	const handleStartStop = () => {
-		if (isRunning) {
-			timer.current = window.setInterval(() => {
+		if (!isRunning) {
+			timerRef.current = setInterval(() => {
 				setSecond((prev) => prev + 1);
 			}, 1000);
+		} else if (timerRef.current !== null) {
+			clearInterval(timerRef.current);
+			timerRef.current = null;
 		}
 		setIsRunning((prev) => !prev);
 	};
 
-	const handleReset = () => {};
-
-	/* React.useEffect(() => {
+	const handleSaveReset = () => {
 		if (isRunning) {
-			timer.current = window.setInterval(() => {
-				setSecond((prev) => prev + 1);
-			}, 1000);
+			setTimes((prev: number[]) => [...prev, second]);
+			setSecond(0);
+			if (timerRef.current !== null) {
+				clearInterval(timerRef.current);
+				timerRef.current = null;
+			}
 		} else {
-			clearInterval(timer.current);
+			setTimes([]);
+			setIsRunning((prev) => !prev);
 		}
-		return () => {
-			clearInterval(timer.current);
-		};
-	}, [isRunning]); */
+		setIsRunning((prev) => !prev);
+	};
 
 	return (
 		<Flex flexDirection="column" alignItems="center" gap="50px">
@@ -45,8 +53,10 @@ const Timer = () => {
 				<Text fontFamily="subHeading">{formatTime(second)}</Text>
 			</Box>
 			<Flex flexDirection="row" justifyContent="center" gap="30px">
-				<Button onClick={handleStartStop}>{isRunning ? '중지' : '실행'}</Button>
-				<Button onClick={handleReset}>{isRunning ? '저장' : '리셋'}</Button>
+				<Button onClick={handleStartStop} isDisabled={buttonDisabled}>
+					{isRunning ? '중지' : '실행'}
+				</Button>
+				<Button onClick={handleSaveReset}>{isRunning ? '저장' : '리셋'}</Button>
 			</Flex>
 		</Flex>
 	);
